@@ -24,7 +24,7 @@ export const Sidebar =[
     cName: 'nav-text'
   },
   {
-    title: 'Notes',
+    title: 'Note',
     path: '/notes',
     icon: <MdSpeakerNotes/>,
     cName: 'nav-text'
