@@ -50,6 +50,7 @@ textarea:focus{
   }
 
   .search{
+    margin-top: 10px;
     margin-left: 18rem;
     display: flex;
     align-items: center;
@@ -64,6 +65,13 @@ textarea:focus{
   }
   .search input:focus{
     outline: none;
+  }
+
+  .red-mode{
+    background-color: red;
+  }
+  .red-mode h1{
+    color: white;
   }
 
   

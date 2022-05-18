@@ -16,6 +16,7 @@ function Note({ notes, handleAddNote, handleDeleteNote }) {
                                   text={note.text} 
                                   date={note.date} 
                                   handleDeleteNote={handleDeleteNote}
+                                  
                                   />)}
       <AddNote handleAddNote={handleAddNote}/>
       </div>

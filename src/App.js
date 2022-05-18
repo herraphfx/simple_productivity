@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navigation from './components/Navigation';
@@ -28,7 +28,25 @@ function App() {
         },
 ]);
 
+
+
   const [searchText, setSearchText] = useState('')
+
+  //Send files to local storage
+  useEffect((() =>{
+      localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
+  }),[notes])
+
+  //Retrieve notes
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(
+      localStorage.getItem('react-notes-app-data')
+    );
+    if(savedNotes){
+      setNotes(savedNotes);
+    }
+  },[])
 
   const addNote = (text) => {
     const date = new Date();
@@ -52,22 +70,31 @@ function App() {
    }
   return (
     <>
+    <div >
     <BrowserRouter>
+    
     <Navigation/>
     <Search handleSearchNote={setSearchText}/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/activity' element={<Activity/>}/>
       <Route path='/workspace' element={<Workspace/>}/>
-      <Route path='/notes' element={<Note 
+      <Route path='/notes' element={ <Note 
                                     notes={notes.filter((note)=>
-                                      note.text.toLowerCase().includes(searchText)
+                                    note.text.toLowerCase().includes(searchText)
                                     )} 
                                     handleAddNote={addNote} 
-                                    handleDeleteNote={deleteNote}/>}/>
+                                    handleDeleteNote={deleteNote}
+                                   
+                                    
+                                    />
+                                   
+                                    }/>
+      
+      
     </Routes>
     </BrowserRouter>
-   
+    </div>
     </>
   );
 }
