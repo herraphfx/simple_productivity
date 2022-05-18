@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Note from './pages/Note';
 import Workspace from './pages/Workspace';
 import { nanoid } from 'nanoid'
+import Search from './components/Search';
 
 function App() {
   const [notes, setNotes] = useState([
@@ -27,6 +28,8 @@ function App() {
         },
 ]);
 
+  const [searchText, setSearchText] = useState('')
+
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -37,18 +40,31 @@ function App() {
     //take the old note and add new notes
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
-     
+     //How we pass the addnote component
+     //Defined in App.js and passed through NoteList component -> AddNote.js
   }
 
+   //DELETE NOTES
+
+   const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+     setNotes(newNotes)
+   }
   return (
     <>
     <BrowserRouter>
     <Navigation/>
+    <Search handleSearchNote={setSearchText}/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/activity' element={<Activity/>}/>
       <Route path='/workspace' element={<Workspace/>}/>
-      <Route path='/notes' element={<Note notes={notes} handleAddNote={addNote}/>}/>
+      <Route path='/notes' element={<Note 
+                                    notes={notes.filter((note)=>
+                                      note.text.toLowerCase().includes(searchText)
+                                    )} 
+                                    handleAddNote={addNote} 
+                                    handleDeleteNote={deleteNote}/>}/>
     </Routes>
     </BrowserRouter>
    
