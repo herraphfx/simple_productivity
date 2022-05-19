@@ -70,11 +70,10 @@ function App() {
    }
   return (
     <>
-    <div >
-    <BrowserRouter>
     
+    <BrowserRouter>
     <Navigation/>
-    <Search handleSearchNote={setSearchText}/>
+    <Search handleSearchNote={setSearchText}  />
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/activity' element={<Activity/>}/>
@@ -94,7 +93,7 @@ function App() {
       
     </Routes>
     </BrowserRouter>
-    </div>
+  
     </>
   );
 }
