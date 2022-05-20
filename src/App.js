@@ -30,23 +30,25 @@ function App() {
 
 
 
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState('');
+
+    //Retrieve notes
+
+    useEffect(() => {
+      const savedNotes = JSON.parse(
+        localStorage.getItem('react-notes-app-data') 
+      );
+      if(savedNotes !== null){
+        setNotes(savedNotes);
+      }
+    },[])
 
   //Send files to local storage
   useEffect((() =>{
       localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
   }),[notes])
 
-  //Retrieve notes
 
-  useEffect(() => {
-    const savedNotes = JSON.parse(
-      localStorage.getItem('react-notes-app-data')
-    );
-    if(savedNotes){
-      setNotes(savedNotes);
-    }
-  },[])
 
   const addNote = (text) => {
     const date = new Date();
@@ -89,7 +91,6 @@ function App() {
                                     />
                                    
                                     }/>
-      
       
     </Routes>
     </BrowserRouter>

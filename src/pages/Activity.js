@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import '../components/TodoForm.css'
+import TodoForm from '../components/TodoForm';
+import TodoList from '../components/TodoList';
 
-function Activity() {
+function Activity(todo) {
   const [task, setTask] = useState('');
+  const [inputText, setInputText] = useState('');
+  const [todos, setTodos] = useState([]);
   
   useEffect(() => {
     getTask();
-
   }, []);
 
 
@@ -15,24 +19,24 @@ function Activity() {
         return response.text();
       })
       .then(data => {
-    console.log(JSON.parse(data));
+    JSON.parse(data);
         setTask(data);
       });
   }
 
 
   function createTask() {
-    let description = prompt('Enter description');
+    let description = prompt('enter text')
     let due_date = prompt('Enter due date'); 
     let completed = prompt('Enter completeted'); 
     let deleted = prompt('Deleted True or false'); 
-    let todolist_id=prompt('enter id')
+    
     fetch('http://localhost:3001/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ description, due_date, completed,deleted,todolist_id}),
+      body: JSON.stringify({ description, due_date, completed,deleted}),
     })
       .then(response => {
         return response.text();
@@ -44,22 +48,23 @@ function Activity() {
 
   function deleteTask() {
     let id = prompt('Enter task id');
+    id = Number(id);
     fetch(`http://localhost:3001/tasks/${id}`, {
       method: 'DELETE',
+      
     })
       .then(response => {
         return response.text();
       })
-      .then(data => {
-        getTask(data);
+      .then(() => {
+        getTask();
       });
   }
 
   return (
     <div className='activity'>
-      {/* {task} */}
-      <button onClick={createTask}>button</button>
-      <button onClick={deleteTask}>delete</button>
+     <TodoForm inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText}/>
+     <TodoList todos={todos}/>
       </div>
   )
 }
