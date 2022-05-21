@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AddNote from '../components/AddNote'
 import NoteList from '../components/NoteList'
 import Search from '../components/Search'
@@ -8,11 +8,11 @@ import Search from '../components/Search'
 
 
 //This is notelist
-function Note({ notes, handleAddNote, handleDeleteNote }) {
+function Note({ notes, handleAddNote, handleDeleteNote, handleSearchNote }) {
   
   return (
     <>
-   
+   <Search handleSearchNote={handleSearchNote}/>
     <div className='note'>
        
       {notes.map((note)=> <NoteList 

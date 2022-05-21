@@ -26,7 +26,7 @@ function Activity(todo) {
 
 
   function createTask() {
-    let description = prompt('enter text')
+    let description = {todos}
     let due_date = prompt('Enter due date'); 
     let completed = prompt('Enter completeted'); 
     let deleted = prompt('Deleted True or false'); 
@@ -64,7 +64,7 @@ function Activity(todo) {
   return (
     <div className='activity'>
      <TodoForm inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText}/>
-     <TodoList todos={todos}/>
+     <TodoList setTodos={setTodos} todos={todos}/>
       </div>
   )
 }

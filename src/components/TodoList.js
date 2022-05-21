@@ -1,13 +1,14 @@
-import React from 'react'
-import Activity from '../pages/Activity'
+import React, { useState } from 'react'
 import Todo from './Todo'
 
-function TodoList({todos}) {
+function TodoList({todos, setTodos}) {
+  
   return (
+    
     <div className='todo-container'>
         <ul className='todo-list'>
             {todos.map((todo) =>(
-                <Todo text={todo.text} id={todo.id} />
+                <Todo  setTodos={setTodos} todos={todos} text={todo.text} key={todo.id} todo={todo} />
                 
             ))}
         </ul>

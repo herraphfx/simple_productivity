@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Note from './pages/Note';
 import Workspace from './pages/Workspace';
 import { nanoid } from 'nanoid'
-import Search from './components/Search';
+
 
 function App() {
   const [notes, setNotes] = useState([
@@ -75,7 +75,7 @@ function App() {
     
     <BrowserRouter>
     <Navigation/>
-    <Search handleSearchNote={setSearchText}  />
+    
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/activity' element={<Activity/>}/>
@@ -86,7 +86,7 @@ function App() {
                                     )} 
                                     handleAddNote={addNote} 
                                     handleDeleteNote={deleteNote}
-                                   
+                                    handleSearchNote={setSearchText} 
                                     
                                     />
                                    
