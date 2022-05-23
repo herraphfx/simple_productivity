@@ -2,7 +2,7 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
-function TodoForm({setInputText, todos, setTodos, inputText}) {
+function TodoForm({setInputText, todos, setTodos, inputText, setPriority, setStatus}) {
     //Javascript function to append my write up
     const inputTextHandler = (e) => {
         console.log(e.target.value);
@@ -21,6 +21,14 @@ function TodoForm({setInputText, todos, setTodos, inputText}) {
         ]);
         setInputText("");
     }
+
+    const statusHandler = (e) => {
+        setStatus(e.target.value)
+    }
+
+    const priorityHandler = (e) => {
+        setPriority(e.target.value)
+    }
   return (
     <form>
         <input value={inputText} onChange={inputTextHandler} type="text" className='todo-input'/>
@@ -28,16 +36,16 @@ function TodoForm({setInputText, todos, setTodos, inputText}) {
             <i className="fas fa-plus-square"></i>
         </button>
         <div className="select">
-            <select name='todos' className='filter-todo'>
+            <select onChange={statusHandler} name='todos' className='filter-todo'>
                 <option value='all'>All</option>
                 <option value='completed'>Completed</option>
                 <option value='uncompleted'>Uncompleted</option>
             </select>
         </div>
         <div className="select">
-            <select name='todos' className='filter-todo'>
-                <option value='all'>Priority</option>
-                <option value='high'>High</option>
+            <select onChange={priorityHandler} name='todos' className='filter-todo'>
+                <option value='priority'>Priority</option>
+                <option  value='high'>High</option>
                 <option value='medium'>Medium</option>
                 <option value='low'>Low</option>
             </select>

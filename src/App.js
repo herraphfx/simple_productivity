@@ -72,12 +72,13 @@ function App() {
    }
   return (
     <>
-    
-    <BrowserRouter>
-    <Navigation/>
-    
+
     <Routes>
-      <Route path='/' element={<Home/>}/>
+    <Route path='/' element={<Home/>}/>
+    </Routes>
+    <Navigation/>
+    <Routes>
+    
       <Route path='/activity' element={<Activity/>}/>
       <Route path='/workspace' element={<Workspace/>}/>
       <Route path='/notes' element={ <Note 
@@ -86,15 +87,10 @@ function App() {
                                     )} 
                                     handleAddNote={addNote} 
                                     handleDeleteNote={deleteNote}
-                                    handleSearchNote={setSearchText} 
-                                    
+                                    handleSearchNote={setSearchText}             
                                     />
-                                   
                                     }/>
-      
     </Routes>
-    </BrowserRouter>
-  
     </>
   );
 }

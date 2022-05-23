@@ -4,10 +4,38 @@ import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
 function Activity(todo) {
+ 
+
+  //States
   const [task, setTask] = useState('');
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
-  
+  const [status, setStatus] = useState('all');
+  const [priority, setPriority] = useState('priority')
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  useEffect(()=> {
+    getLocalTodos();
+  }, [])
+  //use efect
+  useEffect(()=>{
+    filterHandler();
+    saveLocalTodos();
+  }, [todos, status]);
+  //Functions
+  const filterHandler= ()=>{
+    switch(status){
+      case 'completed':
+        setFilteredTodos(todos.filter(todo => todo.completed === true))
+        break;
+      case 'uncompleted':
+        setFilteredTodos(todos.filter((todo) => todo.completed === false))
+        break;
+      default:
+         setFilteredTodos(todos)
+         break
+    }
+  }
   useEffect(() => {
     getTask();
   }, []);
@@ -61,10 +89,34 @@ function Activity(todo) {
       });
   }
 
+  //Save to local storage
+  const saveLocalTodos = () => {
+   
+      localStorage.setItem('todos', JSON.stringify(todos))
+    
+  }
+
+  const getLocalTodos = () => {
+    if(localStorage.getItem("todos") === null){
+      localStorage.setItem("todos", JSON.stringify([]))
+    }
+    else{
+      let todoLocal = JSON.parse(localStorage.getItem("todos"));
+      setTodos(todoLocal);
+    }
+  }
+
   return (
     <div className='activity'>
-     <TodoForm inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText}/>
-     <TodoList setTodos={setTodos} todos={todos}/>
+     <TodoForm inputText={inputText} 
+     todos={todos} 
+     setTodos={setTodos} 
+     setInputText={setInputText}
+     setStatus={setStatus}
+     setPriority={setPriority}
+     
+     />
+     <TodoList filteredTodos={filteredTodos} setTodos={setTodos} todos={todos}/>
       </div>
   )
 }

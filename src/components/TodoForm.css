@@ -80,6 +80,17 @@ form {
     text-decoration: line-through;
     opacity: 0.5;
   }
+
+  .high{
+    background-color: red;
+  }
+  .medium{
+    background-color: orange;
+  }
+
+  .low{
+    background-color: green;
+  }
   
   /*CUSTOM SELECTOR */
   select {
