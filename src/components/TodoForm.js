@@ -50,7 +50,7 @@ function TodoForm({createTask, setInputText, todos, setTodos, inputText, setPrio
          
           
         
-    <form>
+    <div className='form'>
         <input value={inputText} onChange={inputTextHandler} placeholder='Enter a task' type="text" className='todo-input'/>
         <button onClick={submitTodoHandler} className='todo-button' type='submit'>
             <i className="fas fa-plus-square"></i>
@@ -67,7 +67,7 @@ function TodoForm({createTask, setInputText, todos, setTodos, inputText, setPrio
         </div>
 
       
-    </form>
+    </div>
     <div className='dateitem'>
         <label>Choose Due Date: </label>
     <DatePicker className='datepicker' selected={startDate} onChange={(date) => setStartDate(date)} />
