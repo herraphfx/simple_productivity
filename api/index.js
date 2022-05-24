@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const PORT = process.env.PORT || 3001;
 
 
 
@@ -7,17 +8,20 @@ const app = express()
 const db = require('knex')({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'Living@123',
-        database: 'finalproject',
-        port: 5432
+        host: 'ec2-54-164-40-66.compute-1.amazonaws.com' || '127.0.0.1',
+        user:    'yhrjktgszcxxyn' || 'postgres',
+        password:  '171fa30856e8c5071b95e02068c9def350aa76a896be5672cce24769094c0653'|| 'Living@123',
+        database: 'd7b2gkdhbgcege' || 'finalproject',
+        port: 5432,
+        ssl: { 
+            rejectUnauthorized: false 
+        }
     }
 });
 
 app.set("db", db);
 
-app.listen(3001, () => console.log('Example app listening on port 3000!'));
+app.listen(PORT, () => console.log('Example app listening on port 3000!'));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
