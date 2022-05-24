@@ -4,15 +4,30 @@ form {
     justify-content: center;
     align-items: center;
   }
-  form input,
-  form button {
+
+  .dateitem{
+    margin-left: 180px;
+    justify-content: center;
+    align-items: center;
+  }
+  .datepicker{
     padding: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: none;
+    width: 150px;
+    border-radius: 10px;
+    background: rgb(222, 217, 217);
+  }
+  form input{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    width: 300px;
     border-radius: 10px;
     background: rgb(222, 217, 217);
   }
   form button {
+    padding: 0.5rem;
     color: #2196f3;
     background: #f7fffe;
     cursor: pointer;
@@ -22,6 +37,7 @@ form {
     background: #2196f3;
     color: white;
   }
+
   .todo-container {
     display: flex;
     justify-content: center;
@@ -36,7 +52,7 @@ form {
   .todo {
     margin: 0.5rem;
     background: white;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     color: black;
     display: flex;
     justify-content: space-between;
@@ -114,7 +130,7 @@ form {
     color: #2196f3;
     font-family: "Poppins", sans-serif;
     cursor: pointer;
-    width: 12rem;
+    width: 10rem;
   }
   /* Arrow */
   .select::after {
@@ -126,4 +142,10 @@ form {
     background: #2196f3;
     cursor: pointer;
     pointer-events: none;
+  }
+
+  #select-all{
+    min-height: 20vh;
+   display: flex;
+   position: relative;
   }

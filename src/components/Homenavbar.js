@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import logo from '../images/logo.png'
 import '../components/Homepage.css'
 
 function Homenavbar() {
@@ -15,7 +14,6 @@ function Homenavbar() {
         }
     }
     window.addEventListener('scroll', changeBackground);
-
   return (
     <nav id='nav_1' className={nav ? 'nav active' : 'nav'}>
         {/* <a href='#' className='logo'>

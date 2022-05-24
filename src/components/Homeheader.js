@@ -1,6 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Link, Router, Routes } from 'react-router-dom'
-import Activity from '../pages/Activity'
+import {  Link} from 'react-router-dom'
 import Homenavbar from './Homenavbar'
 
 function Homeheader() {

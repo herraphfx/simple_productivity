@@ -13,6 +13,7 @@ function Activity(todo) {
   const [status, setStatus] = useState('all');
   const [priority, setPriority] = useState('priority')
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(()=> {
     getLocalTodos();
@@ -52,19 +53,25 @@ function Activity(todo) {
       });
   }
 
-
+  
   function createTask() {
-    let description = {todos}
-    let due_date = prompt('Enter due date'); 
-    let completed = prompt('Enter completeted'); 
-    let deleted = prompt('Deleted True or false'); 
-    
+    console.log(todos);
+    let description;
+    let due_date;
+    let completed;
+    let deleted;
+    for(let i = 0; i< todos.length; i++ ){
+      description = todos[i].text;
+       due_date = todos[i].date; 
+       completed = todos[i].completed; 
+       deleted = prompt('ente t or f')
+    }
     fetch('http://localhost:3001/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ description, due_date, completed,deleted}),
+      body: JSON.stringify({ description, due_date, completed, deleted}),
     })
       .then(response => {
         return response.text();
@@ -114,6 +121,9 @@ function Activity(todo) {
      setInputText={setInputText}
      setStatus={setStatus}
      setPriority={setPriority}
+     startDate={startDate}
+     setStartDate={setStartDate}
+     createTask={createTask}
      
      />
      <TodoList filteredTodos={filteredTodos} setTodos={setTodos} todos={todos}/>
