@@ -1,7 +1,7 @@
 .navbar {
     background-color: #2196f3;
-    height: 80px;
-    display: flex;
+    height: 0px;
+    display: absolute;
     justify-content: flex-start;
     align-items: center;
 }
@@ -69,3 +69,17 @@
 span{
     margin-left: 16px;
 }
+
+@media only screen and (max-width: 75rem) {
+    .nav-menu {
+        background-color: rgb(219, 219, 219);
+        width: 250px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+         top: 0; 
+         left: -110px; 
+        transition: 850ms;
+    }
+  }

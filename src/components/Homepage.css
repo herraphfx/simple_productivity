@@ -100,7 +100,7 @@ nav.active{
 	top: 50%;
 	transform: translate(-22%,-50%);
 }
-.name span{
+.name p{
     color: #00b7ff;
 }
 .name .details{
@@ -428,7 +428,7 @@ font-size: 2rem;
 		left: 50%;
 		top: 50%;
         transform: translate(-50%,-50%);
-        text-align: center;
+        text-align: justify;
 	}
 	.about-image img{
 		height:400px;

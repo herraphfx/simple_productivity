@@ -22,7 +22,7 @@
     padding: 0.5rem;
     font-size: 1rem;
     border: none;
-    width: 300px;
+    width: 450px;
     border-radius: 10px;
     background: rgb(222, 217, 217);
   }
@@ -95,6 +95,10 @@
   .completed {
     text-decoration: line-through;
     opacity: 0.5;
+  }
+
+  .completed_orange{
+    background-color: orange;
   }
 
   .high{
