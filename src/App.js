@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Note from './pages/Note';
 import Workspace from './pages/Workspace';
 import { nanoid } from 'nanoid'
+import Notfound from './pages/Notfound';
 
 
 function App() {
@@ -75,6 +76,8 @@ function App() {
 
     <Routes>
     <Route path='/' element={<Home/>}/>
+    <Route  element={<Notfound/>}/>
+
     </Routes>
     <Navigation/>
     <Routes>

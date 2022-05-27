@@ -9,9 +9,21 @@ function Feature() {
   return (
     <div id='features'>
         <div className='a-container'>
-            <FeatureBox image={featureimage} title='Task Management'/>
-            <FeatureBox image={featureimage1} title='Notes'/>
-            <FeatureBox image={featureimage2} title='Priority'/>
+            <FeatureBox 
+            image={featureimage} 
+            title='Task Management'
+            description='A good plan today is better than a perfect plan tomorrow.'
+            />
+            <FeatureBox 
+            image={featureimage1} 
+            title='Notes'
+            description='There are no wrong notes'
+            />
+            <FeatureBox 
+            image={featureimage2} 
+            title='Priority'
+            description='Root of productivity is priority'
+            />
         </div>
     </div>
   )

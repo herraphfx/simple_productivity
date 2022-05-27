@@ -3,8 +3,8 @@ import '../components/TodoForm.css'
 import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
+
 function Activity(todo) {
- 
 
   //States
   const [task, setTask] = useState('');

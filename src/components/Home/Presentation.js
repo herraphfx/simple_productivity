@@ -4,7 +4,7 @@ function Presentation() {
   return (
     <div className='presentation'>
         <h1>UI Experience</h1>
-        <p>Lorem</p>
+        <p>A productive Experience</p>
     </div>
   )
 }
