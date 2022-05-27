@@ -1,6 +1,6 @@
 .navbar {
     background-color: #2196f3;
-    height: 0px;
+    height: 10px;
     display: absolute;
     justify-content: flex-start;
     align-items: center;
@@ -14,14 +14,13 @@
 
 .nav-menu {
     background-color: rgb(219, 219, 219);
-    width: 250px;
+    width: 220px;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
     /* top: 0; */
     /* left: -100%; */
-    transition: 850ms;
 }
 .nav-menu.active{
     left: 0;
@@ -34,22 +33,23 @@
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
-    height: 100px;
+    height: 150px;
 
 }
 
 .nav-text a{
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600;
     width: 95%;
     display: flex;
-    
     padding: 30px;
 }
 .nav-text a:hover{
     background-color: #2196f3;
     padding: 20px;
+    color: white;
 }
 
 .nav-menu-items{
@@ -77,9 +77,8 @@ span{
         height: 100vh;
         display: flex;
         justify-content: center;
-        position: fixed;
-         top: 0; 
-         left: -110px; 
-        transition: 850ms;
+        position: absolute;
+         /* top: 0; 
+         left: -110px;  */
     }
   }

@@ -64,7 +64,7 @@ function Activity(todo) {
       description = todos[i].text;
        due_date = todos[i].date; 
        completed = todos[i].completed; 
-       deleted = prompt('ente t or f')
+       deleted = todos[i].deleted;
     }
     fetch('http://localhost:3001/tasks', {
       method: 'POST',

@@ -30,9 +30,13 @@ function Navigation() {
                             {item.icon}
                             <span>{item.title}</span>
                         </Link>
+                        <hr/>
                     </li>
+                    
                 )
+                
             })}
+           
         </ul>
     </nav>
     </IconContext.Provider>

@@ -35,7 +35,6 @@ function Workspace() {
     let filteredTasks = tasks.filter((task) => {
       return task.id !== taskToAdd.id;
     });
-
     let newTaskList = [...filteredTasks, taskToAdd];
 
     setTasks(newTaskList);
@@ -86,8 +85,8 @@ function Workspace() {
   }
 
   return (
-    <div className="activity">
-      <h1>Task Management</h1>
+    <div className="workspace">
+      <h1>Workspace</h1>
       <main className='main_1'>
         <section className='section_1'>
           <StatusLine
